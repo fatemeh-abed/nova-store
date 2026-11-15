@@ -55,3 +55,17 @@ This phase includes a minimal localized placeholder page to make the scaffold na
 git add .
 git commit -m "chore: scaffold NOVA Store phase one"
 ```
+
+## Phase 2 — core architecture
+- `src/api/axiosInstance.ts`: one Axios client, timeout and normalized errors.
+- `src/requests/productRequests.ts`: typed product/category endpoints; optional AbortSignal.
+- `src/types`: product, cart, and request/sort enums.
+- `src/utils/productCatalog.ts`: pure local search/filter/sort/pagination (six per page).
+- `src/utils/cartTotals.ts`: pure cart totals; `formatPrice.ts`: USD formatting.
+- `src/storage/useCartStore.ts`: Zustand cart persisted in localStorage.
+- `useCartHydrated` should gate cart-dependent UI to prevent SSR/client mismatch.
+- FakeStoreAPI prices are **USD**, not toman; do not silently relabel them.
+
+Phase 2 does not implement visual storefront, forms, or checkout.
+
+Run checks: `npm run type-check`, `npm run lint`, `npm run build`.
