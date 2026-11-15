@@ -69,3 +69,17 @@ git commit -m "chore: scaffold NOVA Store phase one"
 Phase 2 does not implement visual storefront, forms, or checkout.
 
 Run checks: `npm run type-check`, `npm run lint`, `npm run build`.
+
+
+## Phases 2–7 storefront
+
+- Locale routing: `/fa` and `/en` via next-intl and Next.js proxy.
+- Header: localized navigation, client search, theme switcher, cart badge and mobile menu.
+- Home: hero, API-driven categories, searchable/sortable 6-item product pages, cart add action, newsletter demo.
+- Footer: navigation and informational placeholders.
+- FakeStoreAPI supplies product titles, categories, images, and **USD** prices. These are intentionally not represented as Iranian toman.
+- Newsletter is a demo-only Formik/Yup form; no subscription is sent.
+- Cart page is a placeholder until the cart-page phase; no checkout/payment is implemented.
+- Reference screenshots are stored in `references/` for visual guidance.
+- Run `npm install`, `npm run type-check`, `npm run lint`, and `npm run build` locally.
+- Current environment cannot access npm reliably, so compilation has not been verified here.
