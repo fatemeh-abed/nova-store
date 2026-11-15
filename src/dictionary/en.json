@@ -83,6 +83,29 @@
     "rating": "Rated {rate} out of 5 from {count} reviews",
     "imageAlt": "Image of {title}",
     "cartSoon": "The cart page will be completed in a later phase.",
-    "menuTitle": "Menu"
+    "menuTitle": "Menu",
+    "newsletterError": "Please check your email address."
+  },
+  "cart": {
+    "title": "Shopping cart",
+    "loading": "Loading cart",
+    "emptyTitle": "Your cart is empty",
+    "emptyDescription": "Explore our products to start shopping.",
+    "continueShopping": "Explore products",
+    "unitPrice": "Unit price",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity of {title}",
+    "increase": "Increase quantity of {title}",
+    "remove": "Remove {title}",
+    "removeButton": "Remove",
+    "summary": "Cart summary",
+    "itemCount": "Items",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "clear": "Clear cart",
+    "demoNotice": "Demo storefront only. Checkout and payment are unavailable.",
+    "imageAlt": "Image of {title}",
+    "metaTitle": "Cart | NOVA",
+    "metaDescription": "Review selected items in your NOVA shopping cart."
   }
 }

@@ -1,2 +1,4 @@
-import {getTranslations,setRequestLocale} from 'next-intl/server';import Header from '@/components/layout/Header';import Footer from '@/components/layout/Footer';
-export default async function CartPage({params}:{params:Promise<{locale:string}>}){const {locale}=await params;setRequestLocale(locale);const t=await getTranslations('landing');return <><Header/><main style={{minHeight:'55vh',maxWidth:1200,margin:'60px auto',padding:24}}><h1>{(await getTranslations('nav'))('cart')}</h1><p>{t('cartSoon')}</p></main><Footer/></>}
+import {setRequestLocale,getTranslations} from 'next-intl/server';
+import type {Metadata} from 'next';import CartView from '@/components/cart/CartView';
+export async function generateMetadata({params}:{params:Promise<{locale:string}>}):Promise<Metadata>{const {locale}=await params;const t=await getTranslations({locale,namespace:'cart'});return {title:t('metaTitle'),description:t('metaDescription'),robots:{index:false,follow:true}}}
+export default async function CartPage({params}:{params:Promise<{locale:string}>}){const {locale}=await params;setRequestLocale(locale);return <CartView/>}

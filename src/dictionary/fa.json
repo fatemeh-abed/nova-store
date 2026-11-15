@@ -83,6 +83,29 @@
     "rating": "امتیاز {rate} از ۵ با {count} نظر",
     "imageAlt": "تصویر {title}",
     "cartSoon": "صفحه سبد خرید در فاز بعد تکمیل می‌شود.",
-    "menuTitle": "فهرست"
+    "menuTitle": "فهرست",
+    "newsletterError": "لطفاً ایمیل را بررسی کنید."
+  },
+  "cart": {
+    "title": "سبد خرید",
+    "loading": "در حال بارگذاری سبد خرید",
+    "emptyTitle": "سبد خرید شما خالی است",
+    "emptyDescription": "برای شروع خرید، محصولات را مشاهده کنید.",
+    "continueShopping": "مشاهده محصولات",
+    "unitPrice": "قیمت واحد",
+    "quantity": "تعداد",
+    "decrease": "کاهش تعداد {title}",
+    "increase": "افزایش تعداد {title}",
+    "remove": "حذف {title}",
+    "removeButton": "حذف",
+    "summary": "خلاصه سبد خرید",
+    "itemCount": "تعداد کالا",
+    "subtotal": "جمع جزء",
+    "total": "مبلغ کل",
+    "clear": "خالی کردن سبد",
+    "demoNotice": "این فروشگاه آزمایشی است و امکان ثبت سفارش یا پرداخت وجود ندارد.",
+    "imageAlt": "تصویر {title}",
+    "metaTitle": "سبد خرید | NOVA",
+    "metaDescription": "بررسی محصولات انتخاب‌شده در سبد خرید NOVA."
   }
 }
