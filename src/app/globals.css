@@ -1,0 +1,6 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fbfaf8; color: #14243b; font-family: Arial, sans-serif; }
+button, input { font: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid #ff6a24; outline-offset: 3px; }

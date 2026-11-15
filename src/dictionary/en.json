@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "title": "NOVA Store",
+    "description": "NOVA Store — a simple, modern shopping experience"
+  },
+  "home": {
+    "languageNav": "Choose language",
+    "eyebrow": "NOVA STORE",
+    "headline": "Welcome to NOVA",
+    "description": "A simpler, smarter way to shop.",
+    "phaseNotice": "Project foundation is ready; the storefront UI will be built in upcoming phases."
+  }
+}
