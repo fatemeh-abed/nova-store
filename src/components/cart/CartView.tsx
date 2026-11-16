@@ -1,19 +1,111 @@
 'use client';
+
 import styled from 'styled-components';
-import {Minus,Plus,Trash2,ShoppingBag} from 'lucide-react';
-import {useLocale,useTranslations} from 'next-intl';
-import {Link} from '@/i18n/navigation';
-import Header from '@/components/layout/Header';import Footer from '@/components/layout/Footer';
-import {useCartStore} from '@/storage/useCartStore';import {useCartHydrated} from '@/storage/useCartHydrated';
-import {getCartTotals} from '@/utils/cartTotals';import {formatPrice} from '@/utils/formatPrice';import {routes} from '@/utils/routes';
-import Button from '@/shared/Button';import Spinner from '@/shared/Spinner';
-const Main=styled.main`max-width:${({theme})=>theme.tokens.sizes.content};margin:0 auto;min-height:55vh;padding:40px 20px;h1{margin-block:0 30px}`;
-const Layout=styled.div`display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:${({theme})=>theme.tokens.spacing.lg};align-items:start;@media(max-width:767px){grid-template-columns:1fr}`;
-const List=styled.div`display:grid;gap:${({theme})=>theme.tokens.spacing.md}`;
-const Row=styled.article`display:grid;grid-template-columns:100px minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px;border:1px solid ${({theme})=>theme.colors.border};background:${({theme})=>theme.colors.surface};border-radius:${({theme})=>theme.tokens.radii.md};img{width:100px;height:110px;object-fit:contain}h2{font-size:16px;line-height:1.5;margin:0 0 8px}p{color:${({theme})=>theme.colors.secondary};margin:0 0 10px}@media(max-width:600px){grid-template-columns:70px minmax(0,1fr);gap:12px;img{width:70px;height:90px}.line-total{grid-column:2}}`;
-const Stepper=styled.div`display:inline-flex;align-items:center;gap:14px;border:1px solid ${({theme})=>theme.colors.border};border-radius:${({theme})=>theme.tokens.radii.pill};button{display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;color:inherit;cursor:pointer}`;
-const Summary=styled.aside`border:1px solid ${({theme})=>theme.colors.border};background:${({theme})=>theme.colors.surface};padding:24px;border-radius:${({theme})=>theme.tokens.radii.lg};h2{margin:0 0 24px}div{display:flex;justify-content:space-between;gap:12px;margin-bottom:18px}strong{font-size:20px}`;
-const Remove=styled.button`display:inline-flex;gap:6px;align-items:center;background:none;border:0;color:${({theme})=>theme.tokens.colors.danger};cursor:pointer;min-height:44px;`;
-const Empty=styled.div`text-align:center;padding:70px 15px;display:grid;justify-items:center;gap:16px;`;
-export default function CartView(){const t=useTranslations('cart');const locale=useLocale() as 'fa'|'en';const hydrated=useCartHydrated();const items=useCartStore(s=>s.items);const setQuantity=useCartStore(s=>s.setQuantity);const removeItem=useCartStore(s=>s.removeItem);const clearCart=useCartStore(s=>s.clearCart);const totals=getCartTotals(items);
-return <><Header/><Main><h1>{t('title')}</h1>{!hydrated?<Spinner label={t('loading')}/>:items.length===0?<Empty><ShoppingBag size={54}/><h2>{t('emptyTitle')}</h2><p>{t('emptyDescription')}</p><Link href={routes.home}>{t('continueShopping')}</Link></Empty>:<Layout><List>{items.map(({product,quantity})=><Row key={product.id}><img src={product.image} alt={t('imageAlt',{title:product.title})}/><div><h2>{product.title}</h2><p>{t('unitPrice')}: {formatPrice(product.price,locale)}</p><Stepper><button aria-label={t('decrease',{title:product.title})} disabled={quantity<=1} onClick={()=>setQuantity(product.id,quantity-1)}><Minus size={16}/></button><span aria-label={t('quantity')}>{quantity}</span><button aria-label={t('increase',{title:product.title})} onClick={()=>setQuantity(product.id,quantity+1)}><Plus size={16}/></button></Stepper><Remove onClick={()=>removeItem(product.id)} aria-label={t('remove',{title:product.title})}><Trash2 size={16}/>{t('removeButton')}</Remove></div><strong className="line-total">{formatPrice(product.price*quantity,locale)}</strong></Row>)}</List><Summary><h2>{t('summary')}</h2><div><span>{t('itemCount')}</span><span>{totals.itemCount}</span></div><div><span>{t('subtotal')}</span><span>{formatPrice(totals.subtotal,locale)}</span></div><hr/><div><strong>{t('total')}</strong><strong>{formatPrice(totals.total,locale)}</strong></div><Button fullWidth onClick={clearCart}>{t('clear')}</Button><p>{t('demoNotice')}</p></Summary></Layout>}</Main><Footer/></>}
+import { useTranslations } from 'next-intl';
+
+import { useCartStore } from '@/storage/useCartStore';
+import { useCartHydrated } from '@/storage/useCartHydrated';
+
+import { getCartTotals } from '@/utils/cartTotals';
+
+import Spinner from '@/shared/Spinner';
+
+import CartHeader from './CartHeader';
+import CartItemsList from './CartItemsList';
+import CartSummary from './CartSummary';
+import CartEmptyState from './CartEmptyState';
+
+const Main = styled.main`
+  width: 100%;
+  max-width: ${({ theme }) => theme.tokens.sizes.content};
+
+  margin: 0 auto;
+  min-height: 55vh;
+
+  padding: 40px 20px 70px;
+
+  @media (max-width: 767px) {
+    padding: 24px 16px 50px;
+  }
+`;
+
+const CartLayout = styled.div`
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(280px, 1fr);
+
+  gap: ${({ theme }) => theme.tokens.spacing.lg};
+
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ProductsSection = styled.section`
+  min-width: 0;
+`;
+
+const SummarySection = styled.div`
+  min-width: 0;
+
+  position: sticky;
+  top: 24px;
+
+  @media (max-width: 900px) {
+    position: static;
+  }
+`;
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 300px;
+`;
+
+export default function CartView() {
+  const t = useTranslations('cart');
+
+  const hydrated = useCartHydrated();
+
+  const items = useCartStore((state) => state.items);
+
+  const clearCart = useCartStore((state) => state.clearCart);
+
+  const { itemCount } = getCartTotals(items);
+
+  if (!hydrated) {
+    return (
+      <Main>
+        <LoadingWrapper>
+          <Spinner label={t('loading')} />
+        </LoadingWrapper>
+      </Main>
+    );
+  }
+
+  return (
+    <Main>
+      <CartHeader itemCount={itemCount} />
+
+      {items.length === 0 ? (
+        <CartEmptyState />
+      ) : (
+        <CartLayout>
+          <ProductsSection>
+            <CartItemsList items={items} />
+          </ProductsSection>
+
+          <SummarySection>
+            <CartSummary items={items} onClearCart={clearCart} />
+          </SummarySection>
+        </CartLayout>
+      )}
+    </Main>
+  );
+}
