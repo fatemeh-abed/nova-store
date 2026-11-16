@@ -1,1 +1,8 @@
-export enum ProductSort { PriceAsc = 'price-asc', PriceDesc = 'price-desc', TitleAsc = 'title-asc', TitleDesc = 'title-desc' }
+export enum ProductSort {
+  BestSelling = 'bestSelling',
+  Newest = 'newest',
+  PriceAsc = 'priceAsc',
+  PriceDesc = 'priceDesc',
+  TitleAsc = 'titleAsc',
+  TitleDesc = 'titleDesc',
+}

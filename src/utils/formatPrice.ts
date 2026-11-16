@@ -1,6 +1,28 @@
-export function formatPrice(amount: number, locale: 'fa' | 'en', currency: 'USD' = 'USD'): string {
-  return new Intl.NumberFormat(locale === 'fa' ? 'fa-IR' : 'en-US', {
-    style: 'currency', currency, maximumFractionDigits: 2
-  }).format(amount);
+export type SupportedLocale = 'fa' | 'en';
+
+const USD_TO_TOMAN = 100_000;
+
+export function formatNumber(
+  value: number,
+  locale: SupportedLocale,
+  options?: Intl.NumberFormatOptions,
+) {
+  return new Intl.NumberFormat(locale === 'fa' ? 'fa-IR' : 'en-US', options).format(value);
 }
-// FakeStoreAPI returns USD amounts. Never label these values as toman without a conversion source.
+
+export function convertToToman(priceUSD: number): number {
+  return Math.round(priceUSD * USD_TO_TOMAN);
+}
+
+export function formatPrice(priceUSD: number, locale: SupportedLocale): string {
+  if (locale === 'fa') {
+    const toman = convertToToman(priceUSD);
+
+    return `${formatNumber(toman, 'fa')} تومان`;
+  }
+
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(priceUSD);
+}
