@@ -20,17 +20,8 @@ The project focuses on modular UI architecture, typed API communication, client-
 | ------------------------------------------------------------ | ---------------------------------------------------------- |
 | ![Shopping Cart Desktop](docs/screenshots/cart-desktop.webp) | ![Shopping Cart Mobile](docs/screenshots/cart-mobile.webp) |
 
-### Desktop
 
-| Persian                                                    | English                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------- |
-| ![Persian Homepage](docs/screenshots/home-fa-desktop.webp) | ![English Homepage](docs/screenshots/home-en-desktop.webp) |
 
-### Responsive & Cart
-
-| Mobile Homepage                                       | Desktop Cart                                        | Mobile Cart                                       |
-| ----------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
-| ![Mobile Homepage](docs/screenshots/home-mobile.webp) | ![Desktop Cart](docs/screenshots/cart-desktop.webp) | ![Mobile Cart](docs/screenshots/cart-mobile.webp) |
 
 ## Features
 
