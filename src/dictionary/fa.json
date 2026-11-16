@@ -106,6 +106,16 @@
     "demoNotice": "این فروشگاه آزمایشی است و امکان ثبت سفارش یا پرداخت وجود ندارد.",
     "imageAlt": "تصویر {title}",
     "metaTitle": "سبد خرید | NOVA",
-    "metaDescription": "بررسی محصولات انتخاب‌شده در سبد خرید NOVA."
+    "metaDescription": "بررسی محصولات انتخاب‌شده در سبد خرید NOVA.",
+    "checkout": "تسویه حساب",
+    "checkoutUnavailable": "تسویه حساب در حال حاضر غیرفعال است"
+  },
+
+  "productSort": {
+    "label": "مرتب‌سازی بر اساس:",
+    "priceAsc": "ارزان‌ترین",
+    "priceDesc": "گران‌ترین",
+    "titleAsc": "نام: الف تا ی",
+    "titleDesc": "نام: ی تا الف"
   }
 }

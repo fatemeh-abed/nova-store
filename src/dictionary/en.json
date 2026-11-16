@@ -106,6 +106,16 @@
     "demoNotice": "Demo storefront only. Checkout and payment are unavailable.",
     "imageAlt": "Image of {title}",
     "metaTitle": "Cart | NOVA",
-    "metaDescription": "Review selected items in your NOVA shopping cart."
+    "metaDescription": "Review selected items in your NOVA shopping cart.",
+    "checkout": "Checkout",
+    "checkoutUnavailable": "Checkout is currently unavailable"
+  },
+
+  "productSort": {
+    "label": "Sort by:",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "titleAsc": "Name: A to Z",
+    "titleDesc": "Name: Z to A"
   }
 }
