@@ -18,6 +18,7 @@ NOVA Store یک پروژه فرانت‌اند فروشگاهی است که از
 
 ![صفحه اصلی فارسی NOVA Store در دسکتاپ](public/screenshots/home-fa-desktop.webp)
 
+<<<<<<< HEAD
 ### صفحه اصلی — نسخه موبایل
 
 ![نمای صفحه اصلی NOVA Store در موبایل](public/screenshots/home-mobile.PNG)
@@ -27,6 +28,10 @@ NOVA Store یک پروژه فرانت‌اند فروشگاهی است که از
 |                           دسکتاپ                            |                          موبایل                           |
 | :---------------------------------------------------------: | :-------------------------------------------------------: |
 | ![سبد خرید در دسکتاپ](public/screenshots/cart-desktop.webp) | ![سبد خرید در موبایل](public/screenshots/cart-mobile.PNG) |
+=======
+
+
+>>>>>>> origin/main
 
 ### حالت تاریک (Dark Mode)
 
