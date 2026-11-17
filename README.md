@@ -1,290 +1,245 @@
-# NOVA Store
+<div dir="rtl" align="right">
 
-A bilingual (Persian/English) e-commerce storefront built with **Next.js 16**, **React**, **TypeScript**, and **styled-components**.
+# 🛍️ NOVA Store | فروشگاه اینترنتی نُوا
 
-The project focuses on modular UI architecture, typed API communication, client-side cart management, localization, theming, and responsive design.
+**یک فروشگاه اینترنتی دو‌زبانه، مدرن و واکنش‌گرا؛ ساخته‌شده با Next.js 16، React و TypeScript.**
 
-## Screenshots
+NOVA Store یک پروژه فرانت‌اند فروشگاهی است که از نمایش و مرتب‌سازی محصولات تا مدیریت سبد خرید را پوشش می‌دهد. هدف فقط ساخت چند صفحه زیبا نبوده؛ ساختاری توسعه‌پذیر، کدهای قابل نگهداری و تجربه‌ای هماهنگ در زبان‌های فارسی و انگلیسی نیز در طراحی آن اهمیت داشته است.
 
-### Homepage — Persian (Desktop)
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs) ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/React-UI-149ECA?logo=react&logoColor=white) ![Languages](https://img.shields.io/badge/Languages-FA%20%7C%20EN-orange)
 
-![NOVA Store Persian Homepage](docs/screenshots/home-fa-desktop.webp)
+**[مشاهده کد پروژه در GitHub](https://github.com/fatemeh-abed/nova-store)** · **[راهنمای نصب و اجرا](#-اجرای-پروژه-در-چند-دقیقه)**
 
-### Homepage — Mobile
+> این پروژه یک نمونه عملی فرانت‌اند است. پرداخت آنلاین و ثبت سفارش واقعی در آن پیاده‌سازی نشده‌اند.
 
-![NOVA Store Mobile Homepage](docs/screenshots/home-mobile.webp)
+## 📸 نگاهی به پروژه
 
-### Shopping Cart — Desktop & Mobile
+### صفحه اصلی — نسخه فارسی دسکتاپ
 
-| Desktop                                                      | Mobile                                                     |
-| ------------------------------------------------------------ | ---------------------------------------------------------- |
-| ![Shopping Cart Desktop](docs/screenshots/cart-desktop.webp) | ![Shopping Cart Mobile](docs/screenshots/cart-mobile.webp) |
+![صفحه اصلی فارسی NOVA Store در دسکتاپ](public/screenshots/home-fa-desktop.webp)
 
-### Desktop
+### صفحه اصلی — نسخه موبایل
 
-| Persian                                                    | English                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------- |
-| ![Persian Homepage](docs/screenshots/home-fa-desktop.webp) | ![English Homepage](docs/screenshots/home-en-desktop.webp) |
+![نمای صفحه اصلی NOVA Store در موبایل](public/screenshots/home-mobile.PNG)
 
-### Responsive & Cart
+### سبد خرید — دسکتاپ و موبایل
 
-| Mobile Homepage                                       | Desktop Cart                                        | Mobile Cart                                       |
-| ----------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
-| ![Mobile Homepage](docs/screenshots/home-mobile.webp) | ![Desktop Cart](docs/screenshots/cart-desktop.webp) | ![Mobile Cart](docs/screenshots/cart-mobile.webp) |
+|                           دسکتاپ                            |                          موبایل                           |
+| :---------------------------------------------------------: | :-------------------------------------------------------: |
+| ![سبد خرید در دسکتاپ](public/screenshots/cart-desktop.webp) | ![سبد خرید در موبایل](public/screenshots/cart-mobile.PNG) |
 
-## Features
+### حالت تاریک (Dark Mode)
 
-- Bilingual storefront with Persian and English localization
-- RTL and LTR layout support
-- Responsive navigation, product cards, and cart layout
-- Product catalog with categories, sorting, and search-related UI
-- Shopping cart with quantity controls, item removal, and order summary
-- Light and dark themes
-- Reusable loading, error, and empty-state components
-- SEO metadata, sitemap, and robots configuration
-- Demonstration-only checkout without payment processing
+![نمای حالت تاریک فروشگاه NOVA Store](public/screenshots/darkmode.PNG)
 
-## Tech Stack
+> تصاویر بالا از پوشه `public/screenshots` در مخزن خوانده می‌شوند. نام فایل‌ها و پسوندهای `.webp` و `.PNG` دقیقاً مطابق فایل‌های موجود نوشته شده‌اند.
 
-| Area             | Technology                   |
-| ---------------- | ---------------------------- |
-| Framework        | Next.js 16 (App Router)      |
-| UI               | React, TypeScript            |
-| Styling          | styled-components            |
-| Localization     | next-intl                    |
-| State Management | Zustand                      |
-| HTTP Client      | Axios                        |
-| Icons            | lucide-react                 |
-| Data Source      | FakeStoreAPI                 |
-| Code Quality     | ESLint, Prettier, TypeScript |
+## ✨ چه امکاناتی دارد؟
 
-Refer to `package.json` for the exact dependency versions.
+- **فارسی و انگلیسی واقعی:** تغییر زبان همراه با جهت درست صفحه؛ راست‌به‌چپ برای فارسی و چپ‌به‌راست برای انگلیسی.
+- **فهرست محصولات:** نمایش محصولات، دسته‌بندی، مرتب‌سازی و رابط جست‌وجو برای پیدا کردن راحت‌تر کالاها.
+- **سبد خرید کاربردی:** افزودن و حذف محصول، تغییر تعداد و مشاهده خلاصه مبلغ سفارش.
+- **حالت روشن و تاریک:** تغییر ظاهر فروشگاه با استفاده از یک سیستم طراحی مشترک.
+- **طراحی واکنش‌گرا:** چیدمان متناسب با دسکتاپ، تبلت و موبایل، از منو تا کارت محصول و سبد خرید.
+- **مدیریت وضعیت‌ها:** نمایش مناسب هنگام بارگذاری اطلاعات، خطای دریافت داده یا خالی بودن فهرست.
+- **آمادگی برای موتورهای جست‌وجو:** متادیتای صفحات، Sitemap و تنظیمات Robots.
+- **تسویه‌حساب نمایشی:** دکمه و رابط تسویه‌حساب برای نمایش جریان کار وجود دارد، اما پرداخت واقعی انجام نمی‌شود.
 
-## Prerequisites
+## 🧰 ابزارها و فناوری‌ها
 
-- Node.js compatible with the installed Next.js version (Node.js 20.9 or newer for Next.js 16)
-- npm
-- Git
+| بخش             | فناوری                       | کاربرد در پروژه                                  |
+| --------------- | ---------------------------- | ------------------------------------------------ |
+| چارچوب اصلی     | Next.js 16 — App Router      | مسیرها، چیدمان صفحات و قابلیت‌های SEO            |
+| رابط کاربری     | React + TypeScript           | کامپوننت‌های قابل استفاده مجدد و کدنویسی نوع‌دار |
+| استایل‌دهی      | styled-components            | طراحی یکپارچه و مدیریت تم                        |
+| چندزبانه‌سازی   | next-intl                    | ترجمه متن‌ها و مسیرهای فارسی و انگلیسی           |
+| مدیریت سبد خرید | Zustand                      | نگهداری وضعیت محصولات انتخاب‌شده                 |
+| ارتباط با API   | Axios                        | درخواست‌های شبکه با تنظیمات مشترک                |
+| آیکن‌ها         | lucide-react                 | آیکن‌های هماهنگ رابط کاربری                      |
+| منبع داده       | FakeStoreAPI                 | داده‌های آزمایشی محصولات                         |
+| کیفیت کد        | ESLint، Prettier، TypeScript | بررسی کیفیت و خطاهای کد                          |
 
-## Installation
+نسخه دقیق کتابخانه‌ها در فایل `package.json` ثبت شده است.
 
-Clone the repository:
+## 🚀 اجرای پروژه در چند دقیقه
+
+**پیش‌نیازها:** Node.js نسخه `20.9` یا جدیدتر، npm و Git.
+
+**۱. دریافت پروژه**
+
+<div dir="ltr" align="left">
 
 ```bash
-git clone <https://github.com/fatemeh-abed/nova-store>
+git clone https://github.com/fatemeh-abed/nova-store.git
 cd nova-store
 ```
 
-Install dependencies:
+</div>
+
+**۲. نصب وابستگی‌ها**
+
+<div dir="ltr" align="left">
 
 ```bash
 npm ci
 ```
 
-Create an environment file from `.env.example`.
+</div>
 
-Windows PowerShell:
+**۳. ساخت فایل تنظیمات محیطی**
+
+در Windows PowerShell:
+
+<div dir="ltr" align="left">
 
 ```powershell
 Copy-Item .env.example .env.local
 ```
 
-macOS / Linux:
+</div>
+
+در macOS و Linux:
+
+<div dir="ltr" align="left">
 
 ```bash
 cp .env.example .env.local
 ```
 
-Review the environment variables and provide the required values.
+</div>
 
-Start the development server:
+**۴. اجرای نسخه توسعه**
+
+<div dir="ltr" align="left">
 
 ```bash
 npm run dev
 ```
 
-Open the URL displayed in the terminal, usually `http://localhost:3000`.
+</div>
 
-Localized routes:
+آدرس نمایش‌داده‌شده در ترمینال را باز کنید؛ معمولاً `http://localhost:3000` است.
 
-- `/fa` — Persian homepage
-- `/en` — English homepage
-- `/fa/cart` — Persian shopping cart
-- `/en/cart` — English shopping cart
+| مسیر       | صفحه              |
+| ---------- | ----------------- |
+| `/fa`      | صفحه اصلی فارسی   |
+| `/en`      | صفحه اصلی انگلیسی |
+| `/fa/cart` | سبد خرید فارسی    |
+| `/en/cart` | سبد خرید انگلیسی  |
 
-## Production Build
+### ساخت نسخه نهایی و بررسی کد
 
-```bash
-npm run build
-npm run start
-```
-
-### Quality Checks
+<div dir="ltr" align="left">
 
 ```bash
 npx tsc --noEmit
 npm run lint
 npm run build
+npm run start
 ```
 
-All three checks completed successfully during local testing on November 16, 2026.
+</div>
 
-## Project Structure
+## 🏗️ معماری؛ هر بخش مسئول کار خودش
+
+برای اینکه اضافه کردن قابلیت جدید به تغییر دادن چندین فایل نامرتبط منجر نشود، پروژه به بخش‌های مشخص تقسیم شده است:
+
+- **App Router:** تعریف مسیرهای دو‌زبانه، Layout و تنظیمات SEO.
+- **Components:** ساخت رابط کاربری با اجزای مستقل برای صفحه اصلی، سبد خرید، هدر و فوتر.
+- **Hooks:** جدا کردن منطق دریافت و آماده‌سازی محصولات از ظاهر صفحه.
+- **API / Requests:** متمرکز کردن تنظیمات Axios و درخواست‌های مربوط به محصولات.
+- **Storage:** مدیریت سبد خرید و هماهنگی وضعیت آن با محیط مرورگر.
+- **Context:** مدیریت مستقل تم روشن و تاریک.
+- **Utils / Types / Validations:** محاسبات و قالب‌بندی، تعریف مدل‌های TypeScript و اعتبارسنجی فرم‌ها.
+
+### مسیر حرکت داده‌ها
+
+```mermaid
+flowchart TD
+    A[FakeStoreAPI] --> B[Axios Instance]
+    B --> C[Product Requests]
+    C --> D[Custom Hooks]
+    D --> E[UI Components]
+    F[Zustand Cart Store] <--> E
+    G[Theme Context] --> E
+```
+
+<details>
+<summary><strong>📁 مشاهده ساختار پوشه‌های پروژه</strong></summary>
+
+<div dir="ltr" align="left">
 
 ```text
 src/
-├── api/
-│   ├── apiError.ts
-│   └── axiosInstance.ts
-├── app/
-│   ├── [locale]/
-│   │   ├── cart/
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── globals.css
-│   ├── robots.ts
-│   └── sitemap.ts
-├── assets/
-│   ├── Fonts/
-│   ├── Icons/
-│   └── Images/
-├── components/
+├── api/                 # تنظیمات Axios و مدیریت خطا
+├── app/                 # مسیرها، Layout، Sitemap و Robots
+│   └── [locale]/        # صفحات فارسی و انگلیسی
+│       └── cart/        # صفحه سبد خرید
+├── assets/              # فونت‌ها، آیکن‌ها و تصاویر
+├── components/          # اجزای رابط کاربری
 │   ├── cart/
 │   ├── home/
 │   ├── layout/
 │   │   ├── Footer/
 │   │   └── Header/
 │   └── NovaLogo/
-├── context/
-├── dictionary/
-├── hooks/
-├── i18n/
-├── modals/
-├── requests/
-├── shared/
-├── storage/
-├── types/
-├── utils/
-├── validations/
-└── proxy.ts
+├── context/             # مدیریت تم
+├── dictionary/          # متن‌های ترجمه‌شده
+├── hooks/               # منطق قابل استفاده مجدد
+├── i18n/                # تنظیمات چندزبانه‌سازی
+├── modals/              # پنجره‌های محاوره‌ای
+├── requests/            # درخواست‌های API
+├── shared/              # اجزای مشترک و توکن‌های طراحی
+├── storage/             # وضعیت سبد خرید
+├── types/               # تایپ‌ها و مدل‌های داده
+├── utils/               # ابزارهای کمکی
+├── validations/         # اعتبارسنجی
+└── proxy.ts             # تنظیمات مربوط به مسیرها
 ```
 
-### Architecture
+</div>
 
-The project follows a modular, feature-oriented frontend architecture.
+</details>
 
-**App Router:** Defines localized routes, layouts, and SEO endpoints.
+## 🛒 سبد خرید چگونه کار می‌کند؟
 
-**Components:** Contains reusable presentation components organized by feature.
+برای مدیریت سبد خرید از **Zustand** استفاده شده است. هر محصول همراه با تعداد انتخاب‌شده نگهداری می‌شود و کامپوننت‌های سبد خرید می‌توانند آن را تغییر دهند.
 
-**Hooks:** Encapsulates reusable product-fetching and catalog logic.
+- `src/storage/useCartStore.ts`: وضعیت و عملیات سبد خرید.
+- `src/storage/useCartHydrated.ts`: هماهنگی وضعیت ذخیره‌شده با اجرای سمت مرورگر.
+- `src/utils/cartTotals.ts`: محاسبه مجموع سفارش، جدا از کد نمایشی.
 
-**API & Requests:** Separates HTTP configuration from product request functions.
+این جداسازی باعث می‌شود تغییر ظاهر سبد خرید، منطق محاسبه قیمت را درگیر نکند. تم نیز مستقل از سبد خرید در `ThemeContext` مدیریت می‌شود.
 
-**Storage:** Manages shopping cart state and client-side hydration.
+## 🔌 ارتباط با API
 
-**Context:** Provides theme-related state.
+محصولات از **FakeStoreAPI** دریافت می‌شوند. برای جلوگیری از تکرار کدهای شبکه در کامپوننت‌ها، ارتباط با API در چند لایه انجام می‌شود:
 
-**Utils:** Contains reusable formatting, product, and cart calculations.
+| فایل                              | مسئولیت                              |
+| --------------------------------- | ------------------------------------ |
+| `src/api/axiosInstance.ts`        | تنظیمات مشترک درخواست‌های HTTP       |
+| `src/api/apiError.ts`             | مدیریت و یکسان‌سازی خطاهای API       |
+| `src/requests/productRequests.ts` | درخواست‌های مرتبط با محصولات         |
+| `src/hooks/`                      | اتصال داده‌های دریافتی به منطق صفحات |
 
-**Types:** Defines domain models and TypeScript declarations.
+## 🧩 تصمیم‌های فنی و دلیل آن‌ها
 
-**Validations:** Contains form validation logic.
+| تصمیم                               | چرا این روش؟                                                          |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| تفکیک API از رابط کاربری            | کامپوننت‌ها درگیر جزئیات درخواست شبکه نمی‌شوند.                       |
+| استفاده از TypeScript               | ساختار داده‌ها روشن‌تر است و بخشی از خطاها پیش از اجرا مشخص می‌شود.   |
+| Zustand برای سبد خرید               | وضعیت سبد خرید بدون انتقال مداوم Props بین کامپوننت‌ها مدیریت می‌شود. |
+| محاسبات در `utils`                  | منطق قیمت و جمع سفارش از ظاهر صفحه جدا می‌ماند.                       |
+| `next-intl` و مسیرهای `/fa` و `/en` | زبان، مسیر و جهت صفحه ساختاری مشخص و قابل توسعه دارند.                |
+| توکن‌های مشترک در تم                | تغییر رنگ‌ها و ظاهر بخش‌های مختلف هماهنگ‌تر انجام می‌شود.             |
 
-## State Management
+## 🌐 دو زبان، دو جهت، یک تجربه
 
-Zustand is used for shopping cart state management.
+در نسخه فارسی، متن‌ها و چیدمان راست‌به‌چپ هستند و در نسخه انگلیسی، چیدمان چپ‌به‌راست است. ترجمه‌ها و مسیرها با `next-intl` مدیریت می‌شوند.
 
-The cart implementation is located in:
+فایل‌های اصلی:
 
-```text
-src/storage/useCartStore.ts
-src/storage/useCartHydrated.ts
-```
-
-Cart components interact with the store to manage items and quantities.
-
-Cart totals are calculated separately using utilities in:
-
-```text
-src/utils/cartTotals.ts
-```
-
-Theme state is handled independently through `ThemeContext`.
-
-This separation helps keep business logic independent of presentation components.
-
-## API Integration
-
-Product data is retrieved from FakeStoreAPI.
-
-The API layer is organized into:
-
-```text
-src/api/axiosInstance.ts
-src/api/apiError.ts
-src/requests/productRequests.ts
-```
-
-The shared Axios instance centralizes HTTP configuration.
-
-Request functions handle product-related API operations.
-
-Reusable hooks connect API data with the UI.
-
-Error handling is separated from presentation components.
-
-### Data Flow
-
-```text
-FakeStoreAPI
-     |
-     v
-Axios Instance
-     |
-     v
-Product Requests
-     |
-     v
-Custom Hooks
-     |
-     v
-UI Components
-```
-
-## FakeStoreAPI Limitations
-
-FakeStoreAPI is intended for demonstration and testing rather than production commerce.
-
-### Limitations
-
-- API availability depends on an external service.
-- Requests may fail or experience delays.
-- Write operations should not be assumed to persist permanently.
-- Product inventory and pricing are not managed by a real commerce backend.
-- Cart data is managed on the client.
-- No real checkout or payment processing is implemented.
-
-### Workarounds
-
-- Reusable loading, error, and empty states
-- Centralized API error handling
-- Client-side shopping cart management
-- Demonstration-only checkout
-- Presentation-level localization and currency formatting
-
-A production version would require a persistent backend, authentication, validated pricing, inventory management, and payment integration.
-
-## Localization
-
-The application supports:
-
-- Persian (`fa`)
-- English (`en`)
-
-Localization is implemented with `next-intl`.
-
-Main configuration files:
+<div dir="ltr" align="left">
 
 ```text
 src/i18n/routing.ts
@@ -294,15 +249,13 @@ src/dictionary/fa.json
 src/dictionary/en.json
 ```
 
-Persian uses RTL layout direction, while English uses LTR.
+</div>
 
-Localized routes use explicit language prefixes.
+## 🌗 تم روشن و تاریک
 
-## Theme System
+رنگ‌ها و ویژگی‌های بصری از طریق سیستم تم تعریف شده‌اند تا اجزای فروشگاه در هر دو حالت ظاهر هماهنگی داشته باشند.
 
-The application supports light and dark themes using styled-components and a dedicated theme context.
-
-Relevant files:
+<div dir="ltr" align="left">
 
 ```text
 src/context/ThemeContext.tsx
@@ -310,32 +263,17 @@ src/shared/theme.ts
 src/types/styled.d.ts
 ```
 
-The theme system centralizes reusable design values and provides consistent styling across components.
+</div>
 
-## Responsive Design
+## 📱 طراحی واکنش‌گرا
 
-The storefront is designed to adapt to desktop, tablet, and mobile screen sizes.
+چیدمان فروشگاه برای اندازه‌های مختلف صفحه طراحی شده است: منوی موبایل، کارت‌های تطبیق‌پذیر محصولات، هدر و فوتر واکنش‌گرا و نمایش مناسب سبد خرید. تصاویر بخش ابتدای README نمونه‌هایی از این صفحات را نشان می‌دهند.
 
-Responsive behavior includes:
+## 🔎 بهینه‌سازی برای موتورهای جست‌وجو
 
-- Mobile navigation
-- Adaptive product layouts
-- Responsive header and footer
-- Cart layout adjustments
-- Flexible typography and spacing
+پروژه دارای متادیتای مسیرهای چندزبانه، تولید Sitemap و تنظیمات Robots است. بسته به نوع صفحه، از قابلیت‌های رندر و تولید صفحه در Next.js نیز استفاده می‌شود.
 
-Screenshots are provided to demonstrate the main responsive layouts.
-
-## SEO
-
-The application includes:
-
-- Localized route metadata
-- Sitemap generation
-- Robots configuration
-- Server-rendered and statically generated pages where supported
-
-Relevant files:
+<div dir="ltr" align="left">
 
 ```text
 src/app/sitemap.ts
@@ -343,41 +281,41 @@ src/app/robots.ts
 src/app/[locale]/layout.tsx
 ```
 
-## Local Evaluation
+</div>
 
-The complete source code is available in this repository.
+## ⚙️ مهندسی در دل محدودیت‌ها
 
-Reviewers can install dependencies and run the application locally using the commands above.
+FakeStoreAPI برای تمرین و نمایش قابلیت‌ها مناسب است، اما جایگزین بک‌اند واقعی فروشگاه نیست. این محدودیت‌ها در طراحی پروژه در نظر گرفته شده‌اند:
 
-The main routes are:
+| محدودیت                                          | رویکرد پروژه                                   |
+| ------------------------------------------------ | ---------------------------------------------- |
+| ممکن است API کند یا موقتاً در دسترس نباشد         | نمایش وضعیت بارگذاری و خطا به‌جای صفحه نامشخص  |
+| ذخیره‌سازی عملیات نوشتن قابل اتکا نیست           | فرض نکردن وجود پایگاه داده دائمی برای سفارش‌ها |
+| بک‌اند واقعی سبد خرید وجود ندارد                 | مدیریت سبد خرید در سمت کاربر با Zustand        |
+| موجودی و قیمت‌ها به سیستم فروش واقعی متصل نیستند | نمایش داده‌ها در چارچوب یک پروژه نمایشی        |
+| درگاه پرداخت وجود ندارد                          | نمایش تسویه‌حساب صرفاً به‌صورت نمایشی           |
 
-```text
-/fa
-/en
-/fa/cart
-/en/cart
-```
+**نکته مهم:** قالب‌بندی فارسی قیمت‌ها و نمایش رابط کاربری به معنای وجود قیمت‌گذاری واقعی یا اتصال به سامانه پرداخت نیست.
 
-The repository also includes screenshots of the main desktop and responsive interfaces.
+## 🧭 اگر قرار باشد پروژه محصول واقعی شود
 
-## Submission Checklist
+مراحل بعدی توسعه می‌توانند شامل اتصال به بک‌اند دائمی، احراز هویت امن، مدیریت موجودی و سفارش‌ها، اعتبارسنجی قیمت در سرور، اتصال به درگاه پرداخت و تست‌های خودکار باشند.
 
-- [x] Independent source repository
-- [x] Modular project architecture
-- [x] TypeScript type checking
-- [x] ESLint validation
-- [x] Successful production build
-- [x] Bilingual implementation
-- [x] Theme support
-- [x] Shopping cart state management
-- [x] Axios-based API integration
-- [x] Meaningful Git commit history
-- [ ] Verify screenshot paths
-- [ ] Verify environment example contains no secrets
-- [ ] Complete manual responsive and API testing
+این موارد **نقشه راه پیشنهادی** هستند، نه امکاناتی که اکنون در پروژه پیاده‌سازی شده‌اند.
 
-## Project Scope
+## ✅ وضعیت پروژه
 
-NOVA Store is a frontend demonstration project created to demonstrate modern React and Next.js development practices.
+طبق گزارش نسخه اولیه README:
 
-It does not include a production-ready payment gateway, persistent order management, or a full commerce backend.
+- [x] ساختار ماژولار و استفاده از TypeScript
+- [x] دو‌زبانه‌سازی فارسی و انگلیسی
+- [x] پشتیبانی از تم روشن و تاریک
+- [x] مدیریت سبد خرید با Zustand
+- [x] دریافت محصولات با Axios
+- [x] اجرای موفق بررسی TypeScript، ESLint و Build در ۱۶ نوامبر ۲۰۲۶
+- [x] به‌روزرسانی مسیرهای تصاویر README به `public/screenshots`
+- [x] ثبت مسیر تصاویر موبایل با پسوند `.PNG` مطابق فایل‌های معرفی‌شده
+- [ ] بررسی دوباره فایل محیطی برای اطمینان از نبود اطلاعات محرمانه
+- [ ] تکمیل تست دستی واکنش‌گرایی و سناریوهای API
+
+</div>
